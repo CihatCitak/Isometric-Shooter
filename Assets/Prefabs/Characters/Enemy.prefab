@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7144803897168258708, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3.98
       objectReference: {fileID: 0}
     - target: {fileID: 7144803897168258708, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7144803897168258708, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 5.8
       objectReference: {fileID: 0}
     - target: {fileID: 7144803897168258708, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -55,9 +55,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7144803897168258709, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7144803898613492367, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 969aab488e9a0f645becf15e8b70daef, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
+--- !u!54 &1635055337439784743 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 3592307967355157681, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
+  m_PrefabInstance: {fileID: 2840244394982249366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4921838941515838723 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7144803897168258709, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
+  m_PrefabInstance: {fileID: 2840244394982249366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6227185019231818965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4921838941515838723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367612369ebecdd4da856e253d678da1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterData: {fileID: 11400000, guid: 41f3342effd9c3d45a7ddb37bd04a66b, type: 2}
+  rb: {fileID: 1635055337439784743}
+  modelTransform: {fileID: 4921838942218156311}
+  layer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!4 &4921838942218156311 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7144803898613492353, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
+  m_PrefabInstance: {fileID: 2840244394982249366}
+  m_PrefabAsset: {fileID: 0}

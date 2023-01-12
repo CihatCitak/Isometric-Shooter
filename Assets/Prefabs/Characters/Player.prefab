@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7144803897168258709, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7144803898613492367, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -175,6 +179,9 @@ MonoBehaviour:
   characterData: {fileID: 11400000, guid: f1ead5cc049816a4ca585284e82cb5ee, type: 2}
   rb: {fileID: 1635055337439784743}
   modelTransform: {fileID: 4921838942218156311}
+  layer:
+    serializedVersion: 2
+    m_Bits: 8
   input: {fileID: 11400000, guid: 97f0a654d9aef954eae1d59580c68ce3, type: 2}
 --- !u!4 &4921838942218156311 stripped
 Transform:
