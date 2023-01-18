@@ -1,4 +1,5 @@
 using UnityEngine;
+using Targets;
 
 public abstract class CharacterController : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public abstract class CharacterController : MonoBehaviour
     public Transform modelTransform;
     public LayerMask layer;
 
-    private CharacterController target = null;
+    private ITarget target = null;
 
     private RaycastHit[] raycastHits = new RaycastHit[5];
 
@@ -29,7 +30,7 @@ public abstract class CharacterController : MonoBehaviour
         if (hitCount > 0)
         {
             RaycastHit hit = raycastHits[0];
-            target = hit.transform.GetComponent<CharacterController>();
+            target = TargetManager.FindTargetFromTransform(raycastHits[0].transform);
 
             Debug.Log(hit.transform.name);
         }
@@ -38,4 +39,23 @@ public abstract class CharacterController : MonoBehaviour
             target = null;
         }
     }
+
+
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        if (target != null)
+            Gizmos.color = new Color(0f, 1f, 0f, 0.15f);
+        else
+            Gizmos.color = new Color(1f, 0f, 0f, 0.15f);
+
+        Gizmos.DrawSphere(modelTransform.position, characterData.SearchRadius);
+
+        if (target != null)
+        {
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawLine(modelTransform.position, target.GetTransform().position);
+        }
+    }
+#endif
 }
