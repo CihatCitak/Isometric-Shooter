@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class EnemyController : CharacterController
 {
-    public override void Look()
+    protected override void Look()
     {
     }
 
-    public override void Move()
+    protected override void Move()
     {
     }
 }

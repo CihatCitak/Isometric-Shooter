@@ -8,7 +8,7 @@ public abstract class CharacterController : MonoBehaviour
     public Transform modelTransform;
     public LayerMask layer;
 
-    private ITarget target = null;
+    protected ITarget target = null;
 
     private RaycastHit[] raycastHits = new RaycastHit[5];
 
@@ -19,25 +19,42 @@ public abstract class CharacterController : MonoBehaviour
         Search();
     }
 
-    public abstract void Move();
+    protected abstract void Move();
 
-    public abstract void Look();
+    protected abstract void Look();
 
-    public virtual void Search()
+    protected virtual void Search()
     {
         int hitCount = Physics.SphereCastNonAlloc(modelTransform.position, characterData.SearchRadius, Vector3.up, raycastHits, Mathf.Infinity, layer);
 
-        if (hitCount > 0)
-        {
-            RaycastHit hit = raycastHits[0];
-            target = TargetManager.FindTargetFromTransform(raycastHits[0].transform);
-
-            Debug.Log(hit.transform.name);
-        }
-        else
+        if (hitCount <= 0)
         {
             target = null;
+            return;
         }
+
+        Transform nearestTransform = FindNearestTransform(hitCount);
+        target = TargetManager.FindTargetFromTransform(nearestTransform);
+    }
+
+    private Transform FindNearestTransform(int hitCount)
+    {
+        Transform nearestTransform = raycastHits[0].transform;
+
+        for (int i = 1; i < hitCount; i++)
+        {
+            Transform nextTransform = raycastHits[i].transform;
+
+            float nearestTargetDistance = (modelTransform.position - nearestTransform.position).sqrMagnitude;
+            float nextTargetDistance = (modelTransform.position - nextTransform.position).sqrMagnitude;
+
+            if (nextTargetDistance < nearestTargetDistance)
+            {
+                nearestTransform = nextTransform;
+            }
+        }
+
+        return nearestTransform;
     }
 
 
