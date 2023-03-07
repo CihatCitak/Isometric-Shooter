@@ -7,9 +7,17 @@ public class PlayerFireState : IState
     public PlayerStateManager StateManager;
     public void StateEnter()
     {
+        // Aim animation
+        // Fire animation
     }
 
     public void StateUpdate()
     {
+        Player.Fire();
+
+        if (Player.IsMoving())
+        {
+            StateManager.SwitchState(StateManager.MoveState);
+        }
     }
 }

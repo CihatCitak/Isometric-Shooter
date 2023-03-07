@@ -183,6 +183,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   input: {fileID: 11400000, guid: 97f0a654d9aef954eae1d59580c68ce3, type: 2}
+--- !u!114 &3724029618055616711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4921838941515838723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2675a9b7a58257f4db65161fc1ae3266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 1058149726945845329}
 --- !u!4 &4921838942218156311 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7144803898613492353, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}

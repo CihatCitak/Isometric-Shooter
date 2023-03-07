@@ -14,4 +14,8 @@ public class EnemyController : CharacterController
     protected override void Look(Vector3 lookDirection)
     {
     }
+
+    public override void Fire()
+    {
+    }
 }

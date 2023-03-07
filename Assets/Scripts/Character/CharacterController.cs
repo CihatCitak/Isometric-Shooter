@@ -16,6 +16,8 @@ public abstract class CharacterController : MonoBehaviour
 
     public abstract bool IsMoving();
 
+    public abstract void Fire();
+
     protected abstract void Look(Vector3 lookDirection);
 
     public virtual void Search()

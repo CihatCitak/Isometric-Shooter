@@ -20,6 +20,8 @@ public class PlayerStateManager : StateManager
         FireState.Player = Player;
         FireState.StateManager = this;
 
+        CurrentState = SearchState;
+
         base.Init();
     }
 }

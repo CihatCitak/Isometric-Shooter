@@ -20,4 +20,18 @@ public class PlayerController : CharacterController
     {
         return input.HasInput;
     }
+
+    public override void Fire()
+    {
+        Vector3 lookDirection = (target.GetTransform().position - transform.position).normalized;
+
+        Look(lookDirection);
+
+        bool canFire = ((modelTransform.forward - lookDirection).sqrMagnitude < 0.05) ? true : false;
+
+        if (canFire)
+        {
+            Debug.Log("Fire");
+        }
+    }
 }
