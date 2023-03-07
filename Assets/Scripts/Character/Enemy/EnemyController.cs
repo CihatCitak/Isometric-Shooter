@@ -2,11 +2,16 @@ using UnityEngine;
 
 public class EnemyController : CharacterController
 {
-    protected override void Look()
+    public override void Move()
     {
     }
 
-    protected override void Move()
+    public override bool IsMoving()
+    {
+        return false;
+    }
+
+    protected override void Look(Vector3 lookDirection)
     {
     }
 }

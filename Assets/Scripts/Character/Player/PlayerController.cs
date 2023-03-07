@@ -4,28 +4,20 @@ public class PlayerController : CharacterController
 {
     [SerializeField] InputData input;
 
-    protected override void Look()
+    protected override void Look(Vector3 lookDirection)
     {
-        modelTransform.forward = Vector3.Lerp(modelTransform.forward, FindLookDirection(), Time.fixedDeltaTime * characterData.LookSpeed);
+        modelTransform.forward = Vector3.Lerp(modelTransform.forward, lookDirection, Time.fixedDeltaTime * characterData.LookSpeed);
     }
 
-    protected override void Move()
+    public override void Move()
     {
-        if (input.HasInput)
-        {
-            rb.velocity = (input.Direction * characterData.MoveSpeed) + (Vector3.up * rb.velocity.y);
-        }
+        Look(input.Direction);
+
+        rb.velocity = (input.Direction * characterData.MoveSpeed) + (Vector3.up * rb.velocity.y);
     }
 
-    private Vector3 FindLookDirection()
+    public override bool IsMoving()
     {
-        Vector3 lookDirection = transform.forward;
-
-        if (input.HasInput)
-            lookDirection = input.Direction;
-        else if (target != null)
-            lookDirection = (target.GetTransform().position - transform.position);
-
-        return lookDirection;
+        return input.HasInput;
     }
 }

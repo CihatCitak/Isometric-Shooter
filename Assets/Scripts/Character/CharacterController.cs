@@ -12,18 +12,13 @@ public abstract class CharacterController : MonoBehaviour
 
     private RaycastHit[] raycastHits = new RaycastHit[5];
 
-    private void FixedUpdate()
-    {
-        Move();
-        Look();
-        Search();
-    }
+    public abstract void Move();
 
-    protected abstract void Move();
+    public abstract bool IsMoving();
 
-    protected abstract void Look();
+    protected abstract void Look(Vector3 lookDirection);
 
-    protected virtual void Search()
+    public virtual void Search()
     {
         int hitCount = Physics.SphereCastNonAlloc(modelTransform.position, characterData.SearchRadius, Vector3.up, raycastHits, Mathf.Infinity, layer);
 
@@ -35,6 +30,16 @@ public abstract class CharacterController : MonoBehaviour
 
         Transform nearestTransform = FindNearestTransform(hitCount);
         target = TargetManager.FindTargetFromTransform(nearestTransform);
+    }
+
+    public virtual bool HasTarget()
+    {
+        return (target != null) ? true : false;
+    }
+
+    public virtual void ResetTarget()
+    {
+        target = null;
     }
 
     private Transform FindNearestTransform(int hitCount)
