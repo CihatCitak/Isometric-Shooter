@@ -1,22 +1,25 @@
-using UnityEngine;
+using Factory;
 using States;
 
 public class PlayerStateManager : StateManager
 {
     public PlayerController Player;
 
-    public PlayerMoveState MoveState = new PlayerMoveState();
-    public PlayerSearchState SearchState = new PlayerSearchState();
-    public PlayerFireState FireState = new PlayerFireState();
+    public PlayerMoveState MoveState;
+    public PlayerSearchState SearchState;
+    public PlayerFireState FireState;
 
     public override void Init()
     {
+        MoveState = (PlayerMoveState)PlayerStatesFactory.CreatePlayerState(PlayerStates.Move);
         MoveState.Player = Player;
         MoveState.StateManager = this;
 
+        SearchState = (PlayerSearchState)PlayerStatesFactory.CreatePlayerState(PlayerStates.Search);
         SearchState.Player = Player;
         SearchState.StateManager = this;
 
+        FireState = (PlayerFireState)PlayerStatesFactory.CreatePlayerState(PlayerStates.Fire);
         FireState.Player = Player;
         FireState.StateManager = this;
 
