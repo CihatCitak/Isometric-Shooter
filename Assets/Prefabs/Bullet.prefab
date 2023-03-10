@@ -131,6 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160f009cd7700ec4aa18de52f9af110f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 500
+  rb: {fileID: 252325769740395248}
 --- !u!114 &8170358006996884878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e79efcf9d2a60f4f8919fcd2c558791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 9050860770891488734}
 --- !u!54 &252325769740395248
 Rigidbody:
   m_ObjectHideFlags: 0

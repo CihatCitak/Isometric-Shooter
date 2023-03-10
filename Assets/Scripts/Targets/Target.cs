@@ -14,6 +14,11 @@ namespace Targets
             TargetManager.RemoveTarget(this);
         }
 
+        public void TakeDamage(int damage)
+        {
+            Debug.Log($"{name} take {damage} damage");
+        }
+
         public Transform GetTransform()
         {
             return transform;

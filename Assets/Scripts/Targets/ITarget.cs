@@ -4,9 +4,11 @@ namespace Targets
 {
     public interface ITarget
     {
-        public bool IsAlive();
+        void TakeDamage(int damage);
 
-        public Transform GetTransform();
+        bool IsAlive();
+
+        Transform GetTransform();
     }
 }
 

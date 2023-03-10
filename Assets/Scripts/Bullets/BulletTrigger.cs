@@ -1,18 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
+using Targets;
 using UnityEngine;
 
-public class BulletTrigger : MonoBehaviour
+namespace Bullets
 {
-    // Start is called before the first frame update
-    void Start()
+    public class BulletTrigger : MonoBehaviour
     {
-        
-    }
+        [SerializeField] Bullet bullet;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent<ITarget>(out ITarget target))
+            {
+                bullet.Hit(target);
+            }
+
+            // De pool
+            Destroy(gameObject);
+        }
     }
 }

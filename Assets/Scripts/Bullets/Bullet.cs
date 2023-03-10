@@ -1,18 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Targets;
 
-public class Bullet : MonoBehaviour
+namespace Bullets
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Bullet : MonoBehaviour
     {
-        
-    }
+        [SerializeField] float speed;
+        [SerializeField] Rigidbody rb;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private int damage = 5;
+
+        private void Start()
+        {
+            rb.AddForce(transform.forward.normalized * speed);
+        }
+
+        public void Hit(ITarget target)
+        {
+            target.TakeDamage(damage);
+        }
+
+        public void SetDamage(int damage)
+        {
+            this.damage = damage;
+        }
     }
 }
+
