@@ -1,18 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class IWeapon : MonoBehaviour
+namespace Weapons
 {
-    // Start is called before the first frame update
-    void Start()
+    public interface IWeapon
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        void Fire();
     }
 }
+

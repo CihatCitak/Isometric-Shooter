@@ -20,10 +20,27 @@ namespace Bullets
             target.TakeDamage(damage);
         }
 
-        public void SetDamage(int damage)
+        public Bullet SetDamage(int damage)
         {
             this.damage = damage;
+
+            return this;
         }
+
+        public Bullet SetPosition(Vector3 position)
+        {
+            transform.position = position;
+
+            return this;
+        }
+
+        public Bullet SetForward(Vector3 forward)
+        {
+            transform.forward = forward;
+
+            return this;
+        }
+
     }
 }
 

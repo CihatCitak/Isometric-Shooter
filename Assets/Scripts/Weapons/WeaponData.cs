@@ -1,16 +1,19 @@
 using UnityEngine;
 using Bullets;
 
-[CreateAssetMenu(menuName = "Weapon Data", fileName = "Weapon Data")]
-public class WeaponData : MonoBehaviour
+namespace Weapons
 {
-    [SerializeField] Bullet bullet;
-    [SerializeField] int damage;
-    [SerializeField] float fireRate;
-    [SerializeField] int magazine;
+    [CreateAssetMenu(menuName = "Weapon Data", fileName = "Weapon Data")]
+    public class WeaponData : MonoBehaviour
+    {
+        [SerializeField] Bullet bullet;
+        [SerializeField] int damage;
+        [SerializeField] float fireRate;
+        [SerializeField] int magazine;
 
-    public Bullet Bullet { get => bullet; }
-    public int Damage { get => damage; }
-    public float FireRate { get => fireRate; }
-    public int Magazine { get => magazine; }
+        public Bullet Bullet { get => bullet; }
+        public int Damage { get => damage; }
+        public float FireRate { get => fireRate; }
+        public int Magazine { get => magazine; }
+    }
 }
