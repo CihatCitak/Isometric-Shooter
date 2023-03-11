@@ -183,6 +183,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   input: {fileID: 11400000, guid: 97f0a654d9aef954eae1d59580c68ce3, type: 2}
+  weaponHandler: {fileID: 5666298812645105219}
 --- !u!114 &3724029618055616711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,3 +202,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7144803898613492353, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
   m_PrefabInstance: {fileID: 2840244394982249366}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5666298812645105219 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7622394618421431765, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
+  m_PrefabInstance: {fileID: 2840244394982249366}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562c323928f5773478b9decf68b9c85b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

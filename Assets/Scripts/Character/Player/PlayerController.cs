@@ -1,8 +1,12 @@
 using UnityEngine;
+using Weapons;
 
 public class PlayerController : CharacterController
 {
     [SerializeField] InputData input;
+    [SerializeField] WeaponHandler weaponHandler;
+
+    private const float AIM_DIFFRENCE = 0.001f;
 
     protected override void Look(Vector3 lookDirection)
     {
@@ -24,14 +28,13 @@ public class PlayerController : CharacterController
     public override void Fire()
     {
         Vector3 lookDirection = (target.GetTransform().position - transform.position).normalized;
-
         Look(lookDirection);
 
-        bool canFire = ((modelTransform.forward - lookDirection).sqrMagnitude < 0.05) ? true : false;
+        bool canFire = ((modelTransform.forward - lookDirection).sqrMagnitude < AIM_DIFFRENCE) ? true : false;
+        if (!canFire)
+            return;
 
-        if (canFire)
-        {
-            Debug.Log("Fire");
-        }
+        IWeapon weapon = weaponHandler.GetWeapon();
+        weapon.Fire();
     }
 }
