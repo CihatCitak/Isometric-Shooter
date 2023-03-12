@@ -4,7 +4,7 @@ namespace Targets
 {
     public interface ITarget
     {
-        void TakeDamage(int damage);
+        void Hit(int damage);
 
         bool IsAlive();
 

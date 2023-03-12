@@ -1,9 +1,12 @@
+using UnityEngine.Events;
 using UnityEngine;
 
 namespace Targets
 {
     public class Target : MonoBehaviour, ITarget
     {
+        public UnityEvent<int> OnHit;
+
         private void OnEnable()
         {
             TargetManager.AddTarget(this);
@@ -14,9 +17,9 @@ namespace Targets
             TargetManager.RemoveTarget(this);
         }
 
-        public void TakeDamage(int damage)
+        public void Hit(int damage)
         {
-            Debug.Log($"{name} take {damage} damage");
+            OnHit?.Invoke(damage);
         }
 
         public Transform GetTransform()
