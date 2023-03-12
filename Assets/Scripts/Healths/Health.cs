@@ -1,45 +1,48 @@
 using UnityEngine.Events;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+namespace Healths
 {
-    public int health;
-
-    [Header("Events")]
-    public UnityEvent OnBorn;
-    public UnityEvent OnDead;
-    public UnityEvent OnTakeDamage;
-    public UnityEvent OnHealing;
-
-    private int maxHealth;
-    public int MaxHealth { get => maxHealth; }
-
-    private int currentHealth;
-    public int CurrentHealth { get => currentHealth; }
-
-    private void Start()
+    public class Health : MonoBehaviour
     {
-        maxHealth = health;
-        currentHealth = health;
+        public int health;
 
-        OnBorn?.Invoke();
-    }
+        [Header("Events")]
+        public UnityEvent OnBorn;
+        public UnityEvent OnDead;
+        public UnityEvent OnTakeDamage;
+        public UnityEvent OnHealing;
 
-    public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
+        private int maxHealth;
+        public int MaxHealth { get => maxHealth; }
 
-        OnTakeDamage?.Invoke();
+        private int currentHealth;
+        public int CurrentHealth { get => currentHealth; }
 
-        if (currentHealth <= 0)
-            OnDead?.Invoke();
-    }
+        private void Start()
+        {
+            maxHealth = health;
+            currentHealth = health;
 
-    public void Healing(int healingAmount)
-    {
-        currentHealth += healingAmount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+            OnBorn?.Invoke();
+        }
 
-        OnHealing?.Invoke();
+        public void TakeDamage(int damage)
+        {
+            currentHealth -= damage;
+
+            OnTakeDamage?.Invoke();
+
+            if (currentHealth <= 0)
+                OnDead?.Invoke();
+        }
+
+        public void Healing(int healingAmount)
+        {
+            currentHealth += healingAmount;
+            currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+            OnHealing?.Invoke();
+        }
     }
 }

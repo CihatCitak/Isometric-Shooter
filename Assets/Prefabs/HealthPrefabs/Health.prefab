@@ -54,7 +54,19 @@ MonoBehaviour:
       m_Calls: []
   OnTakeDamage:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9169022457227165300}
+        m_TargetAssemblyTypeName: Healths.HealthBar, Assembly-CSharp
+        m_MethodName: SetHealthBarRatio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnHealing:
     m_PersistentCalls:
       m_Calls: []
@@ -109,6 +121,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5388199491090735927, guid: c30154c54c156714a905a1989924e456, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 2623592860191943091}
     - target: {fileID: 9137167822482899744, guid: c30154c54c156714a905a1989924e456, type: 3}
       propertyPath: m_Name
       value: HealthBar
@@ -120,3 +136,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3845441270679613274, guid: c30154c54c156714a905a1989924e456, type: 3}
   m_PrefabInstance: {fileID: 3888950344113052995}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9169022457227165300 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5388199491090735927, guid: c30154c54c156714a905a1989924e456, type: 3}
+  m_PrefabInstance: {fileID: 3888950344113052995}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a9137588f3993d4aa1cc5ab3bab8111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
