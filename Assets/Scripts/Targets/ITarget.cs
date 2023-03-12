@@ -4,9 +4,9 @@ namespace Targets
 {
     public interface ITarget
     {
-        void Hit(int damage);
+        bool CanTargetable { get; }
 
-        bool IsAlive();
+        void Hit(int damage);
 
         Transform GetTransform();
     }

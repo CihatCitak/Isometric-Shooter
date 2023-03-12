@@ -5,7 +5,15 @@ namespace Targets
 {
     public class Target : MonoBehaviour, ITarget
     {
+        [Header("Component")]
+        [SerializeField] Collider col;
+        [SerializeField] Rigidbody rb;
+
+        [Header("Event")]
         public UnityEvent<int> OnHit;
+
+        private bool canTargetable = true;
+        public bool CanTargetable => canTargetable;
 
         private void OnEnable()
         {
@@ -27,9 +35,11 @@ namespace Targets
             return transform;
         }
 
-        public bool IsAlive()
+        public void CantTargetAnyMore()
         {
-            return true;
+            canTargetable = false;
+            col.enabled = false;
+            rb.isKinematic = true;
         }
     }
 }

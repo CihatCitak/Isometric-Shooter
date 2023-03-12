@@ -27,6 +27,12 @@ public class PlayerController : CharacterController
 
     public override void Fire()
     {
+        if (!target.CanTargetable)
+        {
+            ResetTarget();
+            return;
+        }
+
         Vector3 lookDirection = (target.GetTransform().position - transform.position).normalized;
         Look(lookDirection);
 

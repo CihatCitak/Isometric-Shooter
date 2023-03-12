@@ -24,6 +24,11 @@ namespace Healths
             healthBarFillImage.DOFillAmount(CalculateHealthRatio(), FILL_DURATION);
         }
 
+        public void CloseCanvas()
+        {
+            canvasGameObject.SetActive(false);
+        }
+
         private float CalculateHealthRatio()
         {
             return (float)health.CurrentHealth / (float)health.MaxHealth;
