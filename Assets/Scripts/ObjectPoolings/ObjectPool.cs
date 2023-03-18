@@ -1,50 +1,53 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ObjectPool<T> : MonoBehaviour where T : MonoBehaviour
+namespace ObjectPoolings
 {
-    [SerializeField] T prefab;
-    [SerializeField] int startSize;
-
-    private Queue<T> queue = new Queue<T>();
-
-    public virtual void Awake()
+    public abstract class ObjectPool<T> : MonoBehaviour where T : MonoBehaviour
     {
-        for (int i = 0; i < startSize; i++)
+        [SerializeField] T prefab;
+        [SerializeField] int startSize;
+
+        private Queue<T> queue = new Queue<T>();
+
+        public virtual void Awake()
         {
-            CreateNewPoolObject();
-        }
-    }
-
-    public abstract void EnqueueSettings(T pooledObject);
-    public abstract void DequeueSettings(T pooledObject);
-
-    public T Dequeue()
-    {
-        if (queue.Count < 0)
-        {
-            CreateNewPoolObject();
-
-            return Dequeue();
+            for (int i = 0; i < startSize; i++)
+            {
+                CreateNewPoolObject();
+            }
         }
 
-        T pooledObject = queue.Dequeue();
-        DequeueSettings(pooledObject);
+        public abstract void EnqueueSettings(T pooledObject);
+        public abstract void DequeueSettings(T pooledObject);
 
-        return pooledObject;
-    }
+        public T Dequeue()
+        {
+            if (queue.Count < 0)
+            {
+                CreateNewPoolObject();
 
-    public void Enqueue(T pooledObject)
-    {
-        EnqueueSettings(pooledObject);
+                return Dequeue();
+            }
 
-        queue.Enqueue(pooledObject);
-    }
+            T pooledObject = queue.Dequeue();
+            DequeueSettings(pooledObject);
 
-    private void CreateNewPoolObject()
-    {
-        T pooledObject = Instantiate(prefab);
+            return pooledObject;
+        }
 
-        Enqueue(pooledObject);
+        public void Enqueue(T pooledObject)
+        {
+            EnqueueSettings(pooledObject);
+
+            queue.Enqueue(pooledObject);
+        }
+
+        private void CreateNewPoolObject()
+        {
+            T pooledObject = Instantiate(prefab);
+
+            Enqueue(pooledObject);
+        }
     }
 }

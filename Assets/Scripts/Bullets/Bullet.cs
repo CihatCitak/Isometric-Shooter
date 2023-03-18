@@ -1,9 +1,10 @@
+using ObjectPoolings;
 using UnityEngine;
 using Targets;
 
 namespace Bullets
 {
-    public class Bullet : MonoBehaviour
+    public class Bullet : MonoBehaviour, IPoolObject
     {
         [SerializeField] float speed;
         [SerializeField] Rigidbody rb;
@@ -39,6 +40,16 @@ namespace Bullets
             transform.forward = forward;
 
             return this;
+        }
+
+        public void DequeueSettings()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void EnqueueSettings()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
