@@ -1,5 +1,6 @@
-using Targets;
+using ObjectPoolings;
 using UnityEngine;
+using Targets;
 
 namespace Bullets
 {
@@ -14,8 +15,7 @@ namespace Bullets
                 bullet.Hit(target);
             }
 
-            // De pool
-            Destroy(gameObject);
+            BulletPool.Instance.Enqueue(bullet);
         }
     }
 }

@@ -1,3 +1,4 @@
+using ObjectPoolings;
 using UnityEngine;
 using Bullets;
 
@@ -22,13 +23,13 @@ namespace Weapons
 
             lastFireTime = Time.time;
 
-            // Pool
-            Bullet bulet = Instantiate(weaponData.Bullet);
+            Bullet bulet = BulletPool.Instance.Dequeue();
 
             bulet
                 .SetDamage(weaponData.Damage)
                 .SetPosition(firePoint.position)
-                .SetForward(firePoint.forward);
+                .SetForward(firePoint.forward)
+                .AddForce();
         }
     }
 }

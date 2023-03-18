@@ -11,11 +11,6 @@ namespace Bullets
 
         private int damage = 5;
 
-        private void Start()
-        {
-            rb.AddForce(transform.forward.normalized * speed);
-        }
-
         public void Hit(ITarget target)
         {
             target.Hit(damage);
@@ -42,14 +37,34 @@ namespace Bullets
             return this;
         }
 
+        public Bullet AddForce()
+        {
+            rb.AddForce(transform.forward.normalized * speed);
+
+            return this;
+        }
+
         public void DequeueSettings()
         {
-            throw new System.NotImplementedException();
+            gameObject.SetActive(true);
+
+            SetTransformParent(null);
         }
 
         public void EnqueueSettings()
         {
-            throw new System.NotImplementedException();
+            gameObject.SetActive(false);
+
+            SetTransformParent(BulletPool.Instance.GetTransform());
+
+            SetPosition(Vector3.zero);
+
+            rb.velocity = Vector3.zero;
+        }
+
+        private void SetTransformParent(Transform parent)
+        {
+            transform.parent = parent;
         }
     }
 }

@@ -23,7 +23,7 @@ namespace ObjectPoolings
 
         public T Dequeue()
         {
-            if (queue.Count < 0)
+            if (queue.Count == 0)
             {
                 CreateNewPoolObject();
 

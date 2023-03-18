@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 9050860770891488734, guid: 6866c63ff99b2464b98f80a8902301f1, type: 3}
   damage: 5
-  fireRate: 0.5
+  fireRate: 0.1
