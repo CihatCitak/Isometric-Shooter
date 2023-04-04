@@ -11,7 +11,7 @@ namespace States
             Init();
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             CurrentState.StateUpdate();
         }
@@ -19,6 +19,8 @@ namespace States
         public virtual void SwitchState(IState state)
         {
             CurrentState = state;
+
+            CurrentState.StateEnter();
         }
 
         public virtual void Init()
