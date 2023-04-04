@@ -2,11 +2,11 @@ public class EnemyPatrolState : EnemyBaseState
 {
     public override void StateEnter()
     {
-        throw new System.NotImplementedException();
+        // Run & Walk Animation
     }
 
     public override void StateUpdate()
     {
-        throw new System.NotImplementedException();
+        Enemy.Move();
     }
 }

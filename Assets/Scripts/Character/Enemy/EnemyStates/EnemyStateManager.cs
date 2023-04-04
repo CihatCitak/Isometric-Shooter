@@ -15,11 +15,11 @@ public class EnemyStateManager : StateManager
         PatrolState.Enemy = Enemy;
         PatrolState.StateManager = this;
 
-        FollowState = (EnemyFollowState)EnemyStatesFactory.CreateEnemyState(EnemyStates.Patrol);
+        FollowState = (EnemyFollowState)EnemyStatesFactory.CreateEnemyState(EnemyStates.Follow);
         FollowState.Enemy = Enemy;
         FollowState.StateManager = this;
 
-        FireState = (EnemyFireState)EnemyStatesFactory.CreateEnemyState(EnemyStates.Patrol);
+        FireState = (EnemyFireState)EnemyStatesFactory.CreateEnemyState(EnemyStates.Fire);
         FireState.Enemy = Enemy;
         FireState.StateManager = this;
 

@@ -3,10 +3,10 @@ using Targets;
 
 public abstract class CharacterController : MonoBehaviour
 {
-    public CharacterData characterData;
-    public Rigidbody rb;
-    public Transform modelTransform;
-    public LayerMask layer;
+    [SerializeField] protected CharacterData characterData;
+    [SerializeField] protected Rigidbody rb;
+    [SerializeField] protected Transform modelTransform;
+    [SerializeField] LayerMask layer;
 
     protected ITarget target = null;
 
@@ -14,11 +14,13 @@ public abstract class CharacterController : MonoBehaviour
 
     public abstract void Move();
 
-    public abstract bool IsMoving();
-
     public abstract void Fire();
 
-    protected abstract void Look(Vector3 lookDirection);
+    protected virtual void Look(Vector3 lookDirection)
+    {
+        lookDirection.y = modelTransform.forward.y;
+        modelTransform.forward = Vector3.Lerp(modelTransform.forward, lookDirection, Time.fixedDeltaTime * characterData.LookSpeed);
+    }
 
     public virtual void Search()
     {
