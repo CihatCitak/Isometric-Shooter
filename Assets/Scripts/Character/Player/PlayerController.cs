@@ -28,7 +28,7 @@ public class PlayerController : CharacterController
             return;
         }
 
-        Vector3 lookDirection = (target.GetTransform().position - transform.position).normalized;
+        Vector3 lookDirection = (TargetPosition - transform.position).normalized;
         Look(lookDirection);
 
         bool canFire = ((modelTransform.forward - lookDirection).sqrMagnitude < AIM_DIFFRENCE) ? true : false;

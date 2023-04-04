@@ -9,6 +9,7 @@ public abstract class CharacterController : MonoBehaviour
     [SerializeField] LayerMask layer;
 
     protected ITarget target = null;
+    protected Vector3 TargetPosition => target.GetTransform().position;
 
     private RaycastHit[] raycastHits = new RaycastHit[5];
 
@@ -80,7 +81,7 @@ public abstract class CharacterController : MonoBehaviour
         if (target != null)
         {
             Gizmos.color = Color.cyan;
-            Gizmos.DrawLine(modelTransform.position, target.GetTransform().position);
+            Gizmos.DrawLine(modelTransform.position, TargetPosition);
         }
     }
 #endif

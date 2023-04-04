@@ -8,5 +8,10 @@ public class EnemyPatrolState : EnemyBaseState
     public override void StateUpdate()
     {
         Enemy.Move();
+
+        if (Enemy.HasTarget())
+        {
+            StateManager.SwitchState(StateManager.FollowState);
+        }
     }
 }

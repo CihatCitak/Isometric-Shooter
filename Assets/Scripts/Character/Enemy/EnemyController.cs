@@ -29,6 +29,23 @@ public class EnemyController : CharacterController
         Search();
     }
 
+    public void FollowTarget()
+    {
+        if (!target.CanTargetable)
+            return;
+
+        Vector3 LookDirection = (TargetPosition - transform.position).normalized;
+        Look(LookDirection);
+
+        agent.SetDestination(TargetPosition);
+    }
+
+    public bool IsFollowDone()
+    {
+        return (TargetPosition - transform.position).sqrMagnitude <
+            characterData.SearchRadius * characterData.SearchRadius;
+    }
+
     public override void Fire()
     {
     }
