@@ -29,6 +29,11 @@ public class EnemyController : CharacterController
         Search();
     }
 
+    public void StopMove()
+    {
+        agent.SetDestination(transform.position);
+    }
+
     public void FollowTarget()
     {
         if (!target.CanTargetable)
@@ -46,7 +51,8 @@ public class EnemyController : CharacterController
             characterData.SearchRadius * characterData.SearchRadius;
     }
 
-    public override void Fire()
+    public override void Dead()
     {
+        Destroy(gameObject);
     }
 }

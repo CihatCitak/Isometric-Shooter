@@ -2,11 +2,20 @@ public class EnemyFireState : EnemyBaseState
 {
     public override void StateEnter()
     {
-        throw new System.NotImplementedException();
+        Enemy.StopMove();
     }
 
     public override void StateUpdate()
     {
-        throw new System.NotImplementedException();
+        Enemy.Fire();
+
+        if (!Enemy.HasTarget())
+        {
+            StateManager.SwitchState(StateManager.PatrolState);
+        }
+        else if (!Enemy.IsFollowDone())
+        {
+            StateManager.SwitchState(StateManager.FollowState);
+        }
     }
 }

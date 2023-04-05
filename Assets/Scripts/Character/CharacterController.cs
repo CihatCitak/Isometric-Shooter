@@ -1,5 +1,6 @@
 using UnityEngine;
 using Targets;
+using Weapons;
 
 public abstract class CharacterController : MonoBehaviour
 {
@@ -7,6 +8,9 @@ public abstract class CharacterController : MonoBehaviour
     [SerializeField] protected Rigidbody rb;
     [SerializeField] protected Transform modelTransform;
     [SerializeField] LayerMask layer;
+    [SerializeField] WeaponHandler weaponHandler;
+
+    private const float AIM_DIFFRENCE = 0.001f;
 
     protected ITarget target = null;
     protected Vector3 TargetPosition => target.GetTransform().position;
@@ -15,7 +19,26 @@ public abstract class CharacterController : MonoBehaviour
 
     public abstract void Move();
 
-    public abstract void Fire();
+    public abstract void Dead();
+
+    public virtual void Fire()
+    {
+        if (!target.CanTargetable)
+        {
+            ResetTarget();
+            return;
+        }
+
+        Vector3 lookDirection = (TargetPosition - transform.position).normalized;
+        Look(lookDirection);
+
+        bool canFire = ((modelTransform.forward - lookDirection).sqrMagnitude < AIM_DIFFRENCE) ? true : false;
+        if (!canFire)
+            return;
+
+        IWeapon weapon = weaponHandler.GetWeapon();
+        weapon.Fire();
+    }
 
     protected virtual void Look(Vector3 lookDirection)
     {

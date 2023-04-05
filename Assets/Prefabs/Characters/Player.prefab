@@ -91,6 +91,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1113836305289827147, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
+      propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113836305289827147, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
+      propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113836305289827147, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
+      propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1058149726945845329}
+    - target: {fileID: 1113836305289827147, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
+      propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113836305289827147, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
+      propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Dead
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113836305289827147, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
+      propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113836305289827147, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
+      propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7144803897168258708, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -143,6 +171,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7144803898613492353, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7144803898613492367, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -182,8 +214,8 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 8
-  input: {fileID: 11400000, guid: 97f0a654d9aef954eae1d59580c68ce3, type: 2}
   weaponHandler: {fileID: 5666298812645105219}
+  input: {fileID: 11400000, guid: 97f0a654d9aef954eae1d59580c68ce3, type: 2}
 --- !u!114 &3724029618055616711
 MonoBehaviour:
   m_ObjectHideFlags: 0

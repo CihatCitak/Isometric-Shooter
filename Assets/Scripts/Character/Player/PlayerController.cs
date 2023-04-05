@@ -1,12 +1,8 @@
 using UnityEngine;
-using Weapons;
 
 public class PlayerController : CharacterController
 {
     [SerializeField] InputData input;
-    [SerializeField] WeaponHandler weaponHandler;
-
-    private const float AIM_DIFFRENCE = 0.001f;
 
     public override void Move()
     {
@@ -20,22 +16,8 @@ public class PlayerController : CharacterController
         return input.HasInput;
     }
 
-    public override void Fire()
+    public override void Dead()
     {
-        if (!target.CanTargetable)
-        {
-            ResetTarget();
-            return;
-        }
-
-        Vector3 lookDirection = (TargetPosition - transform.position).normalized;
-        Look(lookDirection);
-
-        bool canFire = ((modelTransform.forward - lookDirection).sqrMagnitude < AIM_DIFFRENCE) ? true : false;
-        if (!canFire)
-            return;
-
-        IWeapon weapon = weaponHandler.GetWeapon();
-        weapon.Fire();
+        Debug.Log("Player Dead");
     }
 }
