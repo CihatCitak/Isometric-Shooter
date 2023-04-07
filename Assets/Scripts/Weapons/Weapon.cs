@@ -16,10 +16,10 @@ namespace Weapons
             return (Time.time >= (lastFireTime + weaponData.FireRate)) ? true : false;
         }
 
-        public void Fire()
+        public bool Fire()
         {
             if (!CanFire())
-                return;
+                return false;
 
             lastFireTime = Time.time;
 
@@ -30,6 +30,8 @@ namespace Weapons
                 .SetPosition(firePoint.position)
                 .SetForward(firePoint.forward)
                 .AddForce();
+
+            return true;
         }
     }
 }

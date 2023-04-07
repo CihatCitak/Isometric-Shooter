@@ -9,6 +9,7 @@ public abstract class CharacterController : MonoBehaviour
     [SerializeField] protected Transform modelTransform;
     [SerializeField] LayerMask layer;
     [SerializeField] WeaponHandler weaponHandler;
+    public Animator animator;
 
     private const float AIM_DIFFRENCE = 0.001f;
 
@@ -21,12 +22,12 @@ public abstract class CharacterController : MonoBehaviour
 
     public abstract void Dead();
 
-    public virtual void Fire()
+    public virtual bool Fire()
     {
         if (!target.CanTargetable)
         {
             ResetTarget();
-            return;
+            return false;
         }
 
         Vector3 lookDirection = (TargetPosition - transform.position).normalized;
@@ -34,10 +35,10 @@ public abstract class CharacterController : MonoBehaviour
 
         bool canFire = ((modelTransform.forward - lookDirection).sqrMagnitude < AIM_DIFFRENCE) ? true : false;
         if (!canFire)
-            return;
+            return false;
 
         IWeapon weapon = weaponHandler.GetWeapon();
-        weapon.Fire();
+        return weapon.Fire();
     }
 
     protected virtual void Look(Vector3 lookDirection)

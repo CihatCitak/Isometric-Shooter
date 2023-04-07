@@ -13,7 +13,10 @@ public class PlayerFireState : IState
 
     public void StateUpdate()
     {
-        Player.Fire();
+        bool didFire = Player.Fire();
+
+        if (didFire)
+            Player.animator.SetTrigger(CharacterAnimationsStrings.FireStr);
 
         if (Player.IsMoving())
         {

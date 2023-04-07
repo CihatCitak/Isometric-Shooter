@@ -7,7 +7,7 @@ public class PlayerSearchState : IState
     public PlayerStateManager StateManager;
     public void StateEnter()
     {
-        // Idle animation
+        Player.animator.SetBool(CharacterAnimationsStrings.MoveStr, false);
     }
 
     public void StateUpdate()

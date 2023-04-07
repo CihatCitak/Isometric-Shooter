@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerController : CharacterController
 {
-    [SerializeField] InputData input;
+    public InputData input;
 
     public override void Move()
     {
@@ -18,6 +18,6 @@ public class PlayerController : CharacterController
 
     public override void Dead()
     {
-        Debug.Log("Player Dead");
+        animator.SetTrigger(CharacterAnimationsStrings.DeadStr);
     }
 }

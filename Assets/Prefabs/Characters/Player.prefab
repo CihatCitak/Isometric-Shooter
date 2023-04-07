@@ -93,18 +93,30 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1113836305289827147, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
       propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1113836305289827147, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
       propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1113836305289827147, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
+      propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113836305289827147, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
       propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1058149726945845329}
     - target: {fileID: 1113836305289827147, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
+      propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 3724029618055616711}
+    - target: {fileID: 1113836305289827147, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
       propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113836305289827147, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
+      propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1113836305289827147, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
@@ -112,11 +124,23 @@ PrefabInstance:
       value: Dead
       objectReference: {fileID: 0}
     - target: {fileID: 1113836305289827147, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
+      propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: set_enabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113836305289827147, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
       propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: PlayerController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1113836305289827147, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
+      propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: UnityEngine.Behaviour, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113836305289827147, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
       propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113836305289827147, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
+      propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7144803897168258708, guid: 8a51b939dc561bf41b4eb63fe1a155bc, type: 3}
@@ -215,6 +239,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   weaponHandler: {fileID: 1094255755289658102}
+  animator: {fileID: 725868004794126671}
   input: {fileID: 11400000, guid: 97f0a654d9aef954eae1d59580c68ce3, type: 2}
 --- !u!114 &3724029618055616711
 MonoBehaviour:
@@ -363,6 +388,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 7273230fbbda0a049a726adb9011a2d9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc5128588c9fd3b4a948fb4c01e17f3c, type: 3}
+--- !u!95 &725868004794126671 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: bc5128588c9fd3b4a948fb4c01e17f3c, type: 3}
+  m_PrefabInstance: {fileID: 6591115581424135390}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4813772379156648726 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: bc5128588c9fd3b4a948fb4c01e17f3c, type: 3}
