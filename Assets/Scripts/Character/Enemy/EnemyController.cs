@@ -51,8 +51,13 @@ public class EnemyController : CharacterController
             characterData.SearchRadius * characterData.SearchRadius;
     }
 
+    public float CalculateMoveAnimationSpeed()
+    {
+        return Mathf.Abs(agent.desiredVelocity.z / characterData.MoveSpeed);
+    }
+
     public override void Dead()
     {
-        Destroy(gameObject);
+        animator.SetTrigger(CharacterAnimationsStrings.DeadStr);
     }
 }

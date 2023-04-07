@@ -2,7 +2,7 @@ public class EnemyPatrolState : EnemyBaseState
 {
     public override void StateEnter()
     {
-        // Run & Walk Animation
+        Enemy.animator.SetBool(CharacterAnimationsStrings.MoveStr, true);
     }
 
     public override void StateUpdate()
@@ -12,6 +12,10 @@ public class EnemyPatrolState : EnemyBaseState
         if (Enemy.HasTarget())
         {
             StateManager.SwitchState(StateManager.FollowState);
+        }
+        else
+        {
+            Enemy.animator.SetFloat(CharacterAnimationsStrings.SpeedStr, Enemy.CalculateMoveAnimationSpeed());
         }
     }
 }

@@ -2,6 +2,7 @@ public class EnemyFollowState : EnemyBaseState
 {
     public override void StateEnter()
     {
+        Enemy.animator.SetBool(CharacterAnimationsStrings.MoveStr, true);
     }
 
     public override void StateUpdate()
@@ -11,6 +12,10 @@ public class EnemyFollowState : EnemyBaseState
         if (Enemy.IsFollowDone())
         {
             StateManager.SwitchState(StateManager.FireState);
+        }
+        else
+        {
+            Enemy.animator.SetFloat(CharacterAnimationsStrings.SpeedStr, Enemy.CalculateMoveAnimationSpeed());
         }
     }
 }

@@ -3,11 +3,16 @@ public class EnemyFireState : EnemyBaseState
     public override void StateEnter()
     {
         Enemy.StopMove();
+        Enemy.animator.SetBool(CharacterAnimationsStrings.MoveStr, false);
     }
 
     public override void StateUpdate()
     {
-        Enemy.Fire();
+        bool didFire = Enemy.Fire();
+
+        if (didFire)
+            Enemy.animator.SetTrigger(CharacterAnimationsStrings.FireStr);
+
 
         if (!Enemy.HasTarget())
         {

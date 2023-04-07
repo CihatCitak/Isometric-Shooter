@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d5f52c3e4913cb449e789a613859a75, type: 3}
   m_Name: Enemy Data
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 3.5
   lookSpeed: 15
   searchRadius: 20
