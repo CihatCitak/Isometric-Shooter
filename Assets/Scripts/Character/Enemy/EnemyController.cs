@@ -10,6 +10,9 @@ public class EnemyController : CharacterController
     private Vector3 movePosition = Vector3.up * -9999f;
     private const float MIN_DESIRED_VELOCITY = 1f;
 
+    public float FireRadius => characterData.FireRadius;
+    public float SearchRadius => characterData.SearchRadius;
+
     private void Start()
     {
         agent.speed = characterData.MoveSpeed;
@@ -45,10 +48,9 @@ public class EnemyController : CharacterController
         agent.SetDestination(TargetPosition);
     }
 
-    public bool IsFollowDone()
+    public bool IsFollowDone(float radius)
     {
-        return (TargetPosition - transform.position).sqrMagnitude <
-            characterData.SearchRadius * characterData.SearchRadius;
+        return ((TargetPosition - transform.position).sqrMagnitude) < (radius * radius);
     }
 
     public float CalculateMoveAnimationSpeed()

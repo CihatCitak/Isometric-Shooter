@@ -22,7 +22,7 @@ public class EnemyFireState : EnemyBaseState
         {
             StateManager.SwitchState(StateManager.PatrolState);
         }
-        else if (!Enemy.IsFollowDone())
+        else if (!Enemy.IsFollowDone(Enemy.FireRadius))
         {
             StateManager.SwitchState(StateManager.FollowState);
         }

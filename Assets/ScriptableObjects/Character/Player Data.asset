@@ -15,3 +15,4 @@ MonoBehaviour:
   moveSpeed: 10
   lookSpeed: 10
   searchRadius: 10
+  fireRadius: 10

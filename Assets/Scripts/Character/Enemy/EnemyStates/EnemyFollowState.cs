@@ -9,7 +9,7 @@ public class EnemyFollowState : EnemyBaseState
     {
         Enemy.FollowTarget();
 
-        if (Enemy.IsFollowDone())
+        if (Enemy.IsFollowDone(Enemy.SearchRadius))
         {
             StateManager.SwitchState(StateManager.FireState);
         }
