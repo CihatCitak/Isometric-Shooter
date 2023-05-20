@@ -1,9 +1,10 @@
+using UnityEngine;
+
 public class PlayerFireState : PlayerBaseState
 {
     public override void StateEnter()
     {
-        // Aim animation
-        // Fire animation
+        Player.FireStartTime = Time.time;
     }
 
     public override void StateUpdate()

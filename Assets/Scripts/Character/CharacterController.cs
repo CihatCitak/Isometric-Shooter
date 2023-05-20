@@ -16,11 +16,24 @@ public abstract class CharacterController : MonoBehaviour
     protected ITarget target = null;
     protected Vector3 TargetPosition => target.GetTransform().position;
 
+    private float fireStartTime = 0f;
+    public float FireStartTime { get => fireStartTime; set => fireStartTime = value; }
+
     private RaycastHit[] raycastHits = new RaycastHit[5];
 
     public abstract void Move();
 
     public abstract void Dead();
+
+    public float GetAnimationTransitionDuration()
+    {
+        return animator.GetAnimatorTransitionInfo(0).duration;
+    }
+
+    public bool IsAimAnimDone()
+    {
+        return (FireStartTime + GetAnimationTransitionDuration()) < Time.time;
+    }
 
     public virtual bool Fire()
     {
@@ -35,6 +48,9 @@ public abstract class CharacterController : MonoBehaviour
 
         bool canFire = ((modelTransform.forward - lookDirection).sqrMagnitude < AIM_DIFFRENCE) ? true : false;
         if (!canFire)
+            return false;
+
+        if (!IsAimAnimDone())
             return false;
 
         IWeapon weapon = weaponHandler.GetWeapon();
