@@ -1,19 +1,13 @@
-using States;
-using UnityEngine;
-
-public class PlayerMoveState : IState
+public class PlayerMoveState : PlayerBaseState
 {
-    public PlayerController Player;
-    public PlayerStateManager StateManager;
-
-    public void StateEnter()
+    public override void StateEnter()
     {
         Player.animator.SetBool(CharacterAnimationsStrings.MoveStr, true);
 
         Player.ResetTarget();
     }
 
-    public void StateUpdate()
+    public override void StateUpdate()
     {
         Player.Move();
 

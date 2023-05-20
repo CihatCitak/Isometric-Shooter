@@ -1,17 +1,12 @@
-using UnityEngine;
-using States;
-
-public class PlayerFireState : IState
+public class PlayerFireState : PlayerBaseState
 {
-    public PlayerController Player;
-    public PlayerStateManager StateManager;
-    public void StateEnter()
+    public override void StateEnter()
     {
         // Aim animation
         // Fire animation
     }
 
-    public void StateUpdate()
+    public override void StateUpdate()
     {
         bool didFire = Player.Fire();
 

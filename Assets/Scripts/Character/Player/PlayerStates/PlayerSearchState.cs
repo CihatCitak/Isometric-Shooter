@@ -1,16 +1,11 @@
-using UnityEngine;
-using States;
-
-public class PlayerSearchState : IState
+public class PlayerSearchState : PlayerBaseState
 {
-    public PlayerController Player;
-    public PlayerStateManager StateManager;
-    public void StateEnter()
+    public override void StateEnter()
     {
         Player.animator.SetBool(CharacterAnimationsStrings.MoveStr, false);
     }
 
-    public void StateUpdate()
+    public override void StateUpdate()
     {
         Player.Search();
 
