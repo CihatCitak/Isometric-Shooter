@@ -54,7 +54,7 @@ public abstract class CharacterController : MonoBehaviour
             return false;
 
         IWeapon weapon = weaponHandler.GetWeapon();
-        return weapon.Fire();
+        return weapon.Fire(target.GetTransform().position);
     }
 
     protected virtual void Look(Vector3 lookDirection)
