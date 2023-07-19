@@ -841,7 +841,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5985055869253804767, guid: ede6f60fe016c96449cab459ff3dee75, type: 3}
       propertyPath: m_Name
-      value: InputManager
+      value: GamePlayUI
       objectReference: {fileID: 0}
     - target: {fileID: 5985055869253804835, guid: ede6f60fe016c96449cab459ff3dee75, type: 3}
       propertyPath: m_Pivot.x
