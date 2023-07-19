@@ -1,5 +1,6 @@
 using UnityEngine.AI;
 using UnityEngine;
+using LevelManagement;
 
 public class EnemyController : CharacterController
 {
@@ -61,5 +62,7 @@ public class EnemyController : CharacterController
     public override void Dead()
     {
         animator.SetTrigger(CharacterAnimationsStrings.DeadStr);
+
+        LevelEnd.OnEnemyDead?.Invoke();
     }
 }

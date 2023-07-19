@@ -6,7 +6,9 @@ namespace Targets
 {
     public class TargetManager
     {
-        public static List<ITarget> allTargets = new List<ITarget>();
+        private static List<ITarget> allTargets = new List<ITarget>();
+
+        public static int TotalEnemyCount => allTargets.Count - 1;
 
         public static void AddTarget(ITarget target)
         {
