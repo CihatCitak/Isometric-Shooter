@@ -1,4 +1,5 @@
 using UnityEngine;
+using LevelManagement;
 
 public class PlayerController : CharacterController
 {
@@ -19,5 +20,7 @@ public class PlayerController : CharacterController
     public override void Dead()
     {
         animator.SetTrigger(CharacterAnimationsStrings.DeadStr);
+
+        LevelEnd.OnLevelLose?.Invoke();
     }
 }
