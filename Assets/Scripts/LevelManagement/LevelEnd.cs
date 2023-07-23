@@ -28,5 +28,10 @@ namespace LevelManagement
         {
             deadEnemyCount++;
         }
+
+        public static void ResetEnemyCounterData()
+        {
+            deadEnemyCount = 0;
+        }
     }
 }
